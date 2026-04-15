@@ -3737,7 +3737,7 @@ refreshUserList()
 local RGBState = { hue = 0, speed = 0.5, enabled = true }
 
 -- ==================== SETS TAB (KEYBINDS) ====================
-local setsFrame = tabFrames['Sets']
+local setsFrame = tabFrames['k']
 local SetsUI = { keybindButtons = {}, currentScale = 1.0 }
 
 do
