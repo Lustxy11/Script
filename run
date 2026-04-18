@@ -392,7 +392,7 @@ end
 local mockState = {
     active = false,
     trade = nil,
-    isAddingItem = false,
+    isAddingItem = true,
     partnerActionPending = false,
     originalFunctions = {},
     controlPanelOpen = false,
@@ -662,7 +662,7 @@ local function update_busy_indicators(args1)
     TradeApp.partner_negotiation_offer_pane:display_busy(v144[tostring(v145)])
 end
 
-local function addPetToPartnerOffer(petName, flags)
+local function addPetToOffer(petName, flags)
     if not mockState.active or not mockState.trade then return false, 'No active mock trade' end
     if mockState.trade.current_stage == 'confirmation' then return false, 'Cannot modify during confirmation' end
     if #mockState.trade.recipient_offer.items >= 18 then return end
@@ -1826,7 +1826,7 @@ local titleLabel = Instance.new('TextLabel')
 titleLabel.Size = UDim2.new(1, 0, 0, 22)
 titleLabel.Position = UDim2.new(0, 0, 0, 2)
 titleLabel.BackgroundTransparency = 1
-titleLabel.Text = 'MESHALOL On Discord'
+titleLabel.Text = 'meshalol On Discord'
 titleLabel.Font = Enum.Font.FredokaOne
 titleLabel.TextSize = 12
 titleLabel.TextColor3 = Color3.fromRGB(240, 240, 255)
@@ -4185,7 +4185,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
         -- Add Random Item
         if key == UIState.keybinds.addRandomItem then
             if mockState.active then
-                addPetToPartnerOffer(getRandomHighValuePet(), generateRandomPetProperties())
+                addPetToOffer(getRandomHighValuePet(), generateRandomPetProperties())
             end
         end
         
@@ -4348,4 +4348,4 @@ task.spawn(function()
     end
 end)
 
-print("CREDITS TO MESHALOL ")
+print("CREDITS TO meshalol")
